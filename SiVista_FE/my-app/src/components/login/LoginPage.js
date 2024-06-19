@@ -16,13 +16,12 @@ const LoginPage = () => {
     setData(newdata)
     console.log(newdata)
   }
-  const url = ""
+
+
+  const url = 'http://127.0.0.1:8000/api/login/'
   function submit(e){
     e.preventDefault()
-    Axios.post(url,{
-      Username: data.Username,
-      Passowrd: data.Password
-    }).then(res =>{
+    Axios.post(url,data).then(res =>{
       console.log(res.data)
     }).catch(err=>{
       console.log(err)

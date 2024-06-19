@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from src.user.Login.models import Sivista_Users
+from src.user.Login.models import User
 
 class UserDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model= Sivista_Users
+        model= User
         fields="__all__"
