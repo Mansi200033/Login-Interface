@@ -1,6 +1,6 @@
-from src.user.Login.models import *
+from src.Apps.user.Login.models import *
 import hashlib
-from src.user.Login.serializers import *
+from src.Apps.user.Login.serializers import *
 from django.http import JsonResponse, response
 
 
