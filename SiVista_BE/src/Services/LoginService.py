@@ -19,7 +19,7 @@ def PassCheck(User_details, password):
           
 def CheckUser(user):
     
-    filtered_user = User.objects.filter(Usename=user)
+    filtered_user = User.objects.filter(Username=user)
     print(type(filtered_user))
     filter_list=list(filtered_user)
     print(filter_list)
