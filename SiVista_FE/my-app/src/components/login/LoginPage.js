@@ -6,6 +6,7 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [isSubmit, setIsSubmit] = useState(false)
   const [data, setData] = useState({
     Username:"",
     Password:""
@@ -22,10 +23,11 @@ const LoginPage = () => {
     setData(newdata)
     console.log(newdata)
   }
-
+  
 
   const url = 'http://127.0.0.1:8000/api/login/'
   function submit(e){
+    setIsSubmit(true)
     e.preventDefault()
     Axios.post(url,data).then(res =>{
       console.log(res.data)
@@ -36,14 +38,17 @@ const LoginPage = () => {
         Password:""
       });
       navigate("/home")
+     
      }
      else{
       alert(res.data.message)
+      setIsSubmit(false)
      }
    
       // console.log(res.data.message)
     }).catch(err=>{
       console.log(err)
+      setIsSubmit(false)
     })
   }
   return (
@@ -61,7 +66,7 @@ const LoginPage = () => {
     <input type='Password' placeholder='Password' id='Password' value={data.Password} onChange={(e)=> handle(e)}/>
     <a href="/">Forgot password?</a>
 
-    <button type='submit' id="button"  >Login</button>
+    <button type='submit' id="button" disabled={isSubmit} >Login</button>
     
     
   </form>
