@@ -17,16 +17,16 @@ const LandingPage = () => {
       </nav>
       <div className="container">
         <div className="sub-container-1">
-          <h1>Promotional Banner</h1>
+          <button> Promotional banners</button>
         </div>
         <div className="sub-container-2">
-          <h1>Lists of running jobs</h1>
+          <button>Lists of running jobs</button>
         </div>
         <div className="sub-container-3">
-          <h1>Create projects</h1>
+          <button>Create projects</button>
         </div>
         <div className="sub-container-4">
-          <h1>View projects/jobs</h1>
+          <button>View projects/jobs</button>
         </div>
       </div>
     </div>
