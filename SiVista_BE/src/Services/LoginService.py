@@ -1,44 +1,27 @@
-
 import hashlib
 from src.Apps.user.Login.models import User
-from src.Apps.user.Login.serializers import *
+from django.contrib.auth import authenticate
 
 
 
-def PassCheck(User_details, password):
-    
+def PassCheck(User, password):
+    #return authenticate(request,username=User, password=password)
     result = hashlib.md5(password.encode())
-    for user in User_details:
-        if user.Password==result.hexdigest():
-            
-            return True
-        else:
-            
-            return False
+    if User.password==result.hexdigest().upper():
+        
+        return True
+    else:
+        
+        return False
           
           
 def CheckUser(user):
     
-    filtered_user = User.objects.filter(Username=user)
+    filtered_user = User.objects.filter(username=user).first()
+    return filtered_user
     
-    filter_list=list(filtered_user)
-    
-    if not filtered_user:
-        return filter_list
-    else:
-        
-        return filter_list
-
-    
-def IsActive(user_detail):
-    
-    for user in user_detail:
-        if user.Is_active==True:
-            
-            return True
-        else:
-            
-            return False
+def IsActive(user):
+    return user.is_active
    
 
 
