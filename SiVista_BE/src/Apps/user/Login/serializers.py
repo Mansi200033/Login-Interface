@@ -31,6 +31,7 @@ class LoginSerializer(serializers.Serializer):
     
     def get_token(self, user):
         refresh = RefreshToken.for_user(user)
+        print(type(refresh))
         return {
             'refresh': str(refresh),
             'access': str(refresh.access_token),
